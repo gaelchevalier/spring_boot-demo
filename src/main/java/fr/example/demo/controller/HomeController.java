@@ -9,7 +9,7 @@ import fr.example.demo.injection.ServicePerson;
 @Controller
 public class HomeController {
 
-	// Injection via attribut. Possibilité d'injecté via controller et via fonction.
+	// Injection via attribut => scope = classe. Possibilité d'injecté via constructeur et via fonction => scope = fonction.
 	@Autowired
 	ServicePerson servicePerson;
 	
