@@ -1,6 +1,8 @@
 package fr.example.demo.controller;
 
+import fr.example.demo.bll.PersonService;
 import fr.example.demo.bo.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +16,13 @@ import java.util.List;
 @Controller
 public class PersonController {
 
+    @Autowired
+    PersonService personService;
+
     @GetMapping("person/{slug}")
     public String person(@PathVariable("slug") String slug, Model model) {
 
-        Person person = new Person("Knight", "Gaw", slug);
+        Person person = personService.getPersonBySlug(slug);
         model.addAttribute("person", person);
 
         return "person/person";
@@ -26,23 +31,16 @@ public class PersonController {
     @PostMapping("person")
     public String personSubmit(@ModelAttribute("formPerson") Person person) {
 
-        System.out.println(String.format("Person : %s", person.getFirstname()));
+//        System.out.println(String.format("Person : %s", person.getFirstname()));
 
         return "redirect:/";
     }
 
     @GetMapping("show-persons")
     public String showAllPerson(Model model) {
-        // 1. Données en dur
-        List<Person> persons = Arrays.asList(new Person[] {
-            new Person("Gaw", "Knight", "gknight"),
-            new Person("John", "Doe", "jod"),
-            new Person("Jane", "Doe", "jane")
-        });
-        // 2. envoyer données dans model pour la vue
-        model.addAttribute("persons", persons);
-        // 3. retourner la vue
+        // 1. envoyer données dans model pour la vue
+        model.addAttribute("persons", personService.getAll());
+        // 2. retourner la vue
         return "person/person-list";
-
     }
 }
