@@ -1,15 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/uikit-3.16.19/css/uikit.min.css" />
+    <script src="/vendor/uikit-3.16.19/js/uikit.min.js"></script>
+    <script src="/vendor/uikit-3.16.19/js/uikit-icons.min.js"></script>
     <title>Fiche Personne</title>
 </head>
 <body>
-  <h2>Personne</h2>
+    <section class="uk-section uk-article">
+        <div class="uk-container uk-container-small">
+            <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top">Person</h2>
 
-  <!--  Formulaire -->
-  <form>
+            <!-- Formulaire  -->
+            <form action="/person" method="post" th:object="${formPerson}">
 
-  </form>
+                <fieldset class="uk-fieldset">
+
+                    <legend class="uk-legend">Form Person</legend>
+
+                    <!-- Champ de saisie Firstname -->
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" th:field="${person.firstname}" placeholder="Firstname" aria-label="Input">
+                    </div>
+
+                    <!-- Champ de saisie Lastname -->
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" th:field="${person.lastname}" placeholder="Lastname" aria-label="Input">
+                    </div>
+
+                    <!-- Bouton Submit -->
+                    <div class="uk-margin" uk-margin>
+                        <button class="uk-button uk-button-default">Submit</button>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </section>
 </body>
 </html>

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Profile("prod")
 public class ServicePersonImpl extends ServicePerson {
 
-	@Override
-	public void test() {
-		System.out.println("IMPL");
-	}
+//	@Override
+//	public void test() {
+//		System.out.println("IMPL");
+//	}
 }

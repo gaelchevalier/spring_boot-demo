@@ -19,7 +19,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String home() {
 		
-		servicePerson.test();
+//		servicePerson.test();
 		
 		return "home";
 	}

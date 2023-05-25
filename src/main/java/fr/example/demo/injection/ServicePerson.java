@@ -2,7 +2,7 @@ package fr.example.demo.injection;
 
 public class ServicePerson {
 
-	public void test() {
-		System.out.println("Test DAO");
-	}
+//	public void test() {
+//		System.out.println("Test DAO");
+//	}
 }

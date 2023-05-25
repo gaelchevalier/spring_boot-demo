@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Profile("mock")
 public class ServicePersonMock extends ServicePerson {
 
-	@Override
-	public void test() {
-		System.out.println("MOCK");
-	}
+//	@Override
+//	public void test() {
+//		System.out.println("MOCK");
+//	}
 }
