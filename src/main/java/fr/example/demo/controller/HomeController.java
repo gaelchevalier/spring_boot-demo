@@ -50,6 +50,12 @@ public class HomeController {
 		// Envoie de la donnée dans le model
 		model.addAttribute("articleName", articleName);
 		
-		return "article.html";
+		return "article";
+	}
+
+	//Exemple de redirection
+	@GetMapping("/test-redirect")
+	public String testRedirect() {
+		return "redirect:/";
 	}
 }
